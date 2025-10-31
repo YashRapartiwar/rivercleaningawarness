@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project River Revive</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Apply Inter font */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Simple modal transition */
+        #signup-modal {
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+        #signup-modal > div {
+            transition: transform 0.3s ease-out;
+        }
+        .modal-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .modal-hidden > div {
+            transform: scale(0.95);
+        }
+        .modal-visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-visible > div {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800">
+
+    <!-- Header & Navigation -->
+    <header class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold text-blue-600">
+                <span class="text-cyan-500">River</span>Revive
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-slate-600 hover:text-blue-600 transition-colors">About</a>
+                <a href="#mission" class="text-slate-600 hover:text-blue-600 transition-colors">Mission</a>
+                <a href="#learn" class="text-slate-600 hover:text-blue-600 transition-colors">Learn</a>
+                <a href="#events" class="text-slate-600 hover:text-blue-600 transition-colors">Events</a>
+                <a href="#contact" class="text-slate-600 hover:text-blue-600 transition-colors">Contact</a>
+            </div>
+            <a href="#events" class="hidden md:block bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition-all duration-300 transform hover:-translate-y-0.5 shadow-md hover:shadow-lg">
+                Get Involved
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden text-slate-700">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <a href="#about" class="block px-6 py-3 text-slate-600 hover:bg-slate-100">About</a>
+            <a href="#mission" class="block px-6 py-3 text-slate-600 hover:bg-slate-100">Mission</a>
+            <a href="#learn" class="block px-6 py-3 text-slate-600 hover:bg-slate-100">Learn</a>
+            <a href="#events" class="block px-6 py-3 text-slate-600 hover:bg-slate-100">Events</a>
+            <a href="#contact" class="block px-6 py-3 text-slate-600 hover:bg-slate-100">Contact</a>
+            <a href="#events" class="block px-6 py-4 bg-blue-600 text-white text-center font-medium hover:bg-blue-700 transition duration-300">
+                Get Involved
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="h-screen min-h-[600px] flex items-center justify-center relative text-center text-white bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=80&w=1920&h=1080&fit=crop');">
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-black/50"></div>
+            <!-- Content -->
+            <div class="container mx-auto px-6 relative z-10">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 drop-shadow-lg">Revive Pune's Rivers</h1>
+                <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto drop-shadow-md">The Mula-Mutha is our city's lifeline. Join us to restore its health and beauty.</p>
+                <a href="#events" class="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-slate-100 transition duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl">
+                    Join a Cleanup Drive
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 bg-slate-50">
+            <div class="container mx-auto px-6 max-w-3xl text-center">
+                <div class="prose lg:prose-lg mx-auto">
+                    <h2 class="text-4xl font-bold text-slate-800 mb-6">The Problem We Face</h2>
+                    <p class="text-slate-600 mb-4">
+                        Our local rivers, the Mula and Mutha, are choking on pollution. Untreated sewage, industrial discharge, and widespread plastic waste threaten our city's water supply and precious ecosystems.
+                    </p>
+                    <p class="text-slate-600 mb-6">
+                        But it's not too late. <span class="font-semibold text-blue-600">Project River Revive</span> is a community-driven initiative for Punekars, by Punekars, dedicated to the hands-on cleaning and long-term preservation of our rivers.
+                    </p>
+                    <a href="#mission" class="text-blue-600 font-medium hover:underline">Learn about our mission &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section id="mission" class="py-24 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold mb-6">Our Mission</h2>
+                <p class="text-xl max-w-3xl mx-auto mb-12 text-slate-600">
+                    To mobilize our community through direct action, education, and advocacy to achieve a clean, healthy, and sustainable river ecosystem for generations to come.
+                </p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Mission Item 1 -->
+                    <div class="bg-white text-slate-800 p-8 rounded-lg shadow-lg border border-slate-100 transform hover:-translate-y-2 transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 mx-auto mb-4 text-blue-600">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
+                        </svg>
+                        <h3 class="text-2xl font-bold mb-3">Clean Up</h3>
+                        <p class="text-slate-600">Organize and execute regular, large-scale river bank cleanup events.</p>
+                    </div>
+                    <!-- Mission Item 2 -->
+                    <div class="bg-white text-slate-800 p-8 rounded-lg shadow-lg border border-slate-100 transform hover:-translate-y-2 transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 mx-auto mb-4 text-blue-600">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 00b.93 14.5a8.967 8.967 0 0013.337 4.091M12 6.042A8.967 8.967 0 0121.07 14.5a8.967 8.967 0 01-13.337 4.091M12 6.042V3.75m0 2.292c.63.132 1.29.21 1.97.21s1.34-.078 1.97-.21m-3.94 0c.63.132 1.29.21 1.97.21s1.34-.078 1.97-.21m-7.02 6.342c.63.132 1.29.21 1.97.21s1.34-.078 1.97-.21m-3.94 0c.63.132 1.29.21 1.97.21s1.34-.078 1.97-.21" />
+                        </svg>
+                        <h3 class="text-2xl font-bold mb-3">Educate</h3>
+                        <p class="text-slate-600">Raise public awareness about the sources of river pollution and its impact.</p>
+                    </div>
+                    <!-- Mission Item 3 -->
+                    <div class="bg-white text-slate-800 p-8 rounded-lg shadow-lg border border-slate-100 transform hover:-translate-y-2 transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 mx-auto mb-4 text-blue-600">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.992 0l4.992 4.992M16.023 9.348A7.49 7.49 0 0119.5 12c0 1.257-.384 2.427-1.073 3.348m-4.904 4.904A7.49 7.49 0 0112 19.5c-1.257 0-2.427-.384-3.348-1.073m-4.904-4.904A7.49 7.49 0 014.5 12c0-1.257.384-2.427 1.073-3.348M12 12l3.348-3.348m-3.348 3.348L8.652 8.652m3.348 3.348v3.348m0-3.348h3.348M12 12l-3.348 3.348m3.348-3.348L15.348 8.652m-3.348 3.348V8.652m0 3.348H8.652" />
+                        </svg>
+                        <h3 class="text-2xl font-bold mb-3">Restore</h3>
+                        <p class="text-slate-600">Work with local authorities on long-term restoration and re-greening projects.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learn More Section -->
+        <section id="learn" class="py-24 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12">Understanding the Crisis in Pune</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Column 1: Causes -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg border border-slate-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 mx-auto mb-4 text-red-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                        </svg>
+                        <h3 class="text-2xl font-bold mb-4 text-center">The Causes</h3>
+                        <ul class="space-y-2 text-slate-600 list-disc list-inside">
+                            <li><strong>Plastic & Solid Waste:</strong> Dumping of garbage directly into the river.</li>
+                            <li><strong>Untreated Sewage:</strong> A high percentage of the city's sewage enters the rivers untreated.</li>
+                            <li><strong>Construction Debris:</strong> Illegal dumping from rapid urban development.</li>
+                            <li><strong>Industrial Effluents:</strong> Release of chemicals from nearby industrial areas.</li>
+                        </ul>
+                    </div>
+                    <!-- Column 2: Consequences -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg border border-slate-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 mx-auto mb-4 text-yellow-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                        </svg>
+                        <h3 class="text-2xl font-bold mb-4 text-center">The Consequences</h3>
+                        <ul class="space-y-2 text-slate-600 list-disc list-inside">
+                            <li><strong>Water-borne Diseases:</strong> Health crisis for communities relying on river water.</li>
+                            <li><strong>Loss of Biodiversity:</strong> Fish and native plant life are dying.</li>
+                            <li><strong>Groundwater Pollution:</strong> Contaminants are seeping into our groundwater.</li>
+                            <li><strong>Flooding:</strong> Blockages from waste increase flood risk during monsoon.</li>
+                        </ul>
+                    </div>
+                    <!-- Column 3: What You Can Do -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg border border-slate-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 mx-auto mb-4 text-green-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <h3 class="text-2xl font-bold mb-4 text-center">What You Can Do</h3>
+                        <ul class="space-y-2 text-slate-600 list-disc list-inside">
+                            <li><strong>Reduce Plastic:</strong> Carry reusable bags, bottles, and tiffins.</li>
+                            <li><strong>Proper Waste Segregation:</strong> Ensure wet and dry waste is managed correctly.</li>
+                            <li><strong>Stop Dumping:</strong> Educate others and report illegal dumping.</li>
+                            <li><strong>Join Us:</strong> Volunteer for a cleanup drive!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12">Upcoming Cleanup Drives</h2>
+                <div class="max-w-4xl mx-auto space-y-6">
+                    <!-- Event 1 -->
+                    <div class="bg-slate-50 rounded-lg shadow-lg p-6 flex flex-col md:flex-row items-start md:items-center transition hover:shadow-xl">
+                        <div class="flex-shrink-0 bg-blue-100 text-blue-800 p-4 rounded-lg text-center mb-4 md:mb-0 md:mr-6">
+                            <span class="block text-xl font-bold">NOV</span>
+                            <span class="block text-3xl font-extrabold">15</span>
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-2xl font-semibold text-slate-800">Mula-Mutha Sangam Cleanup</h3>
+                            <span class="block text-slate-500">8:00 AM - 11:00 AM | Meet at Sangam Ghat</span>
+                        </div>
+                        <button class="signup-btn bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition duration-300 w-full md:w-auto mt-4 md:mt-0 md:ml-6 flex-shrink-0">
+                            Sign Up
+                        </button>
+                    </div>
+                    <!-- Event 2 -->
+                    <div class="bg-slate-50 rounded-lg shadow-lg p-6 flex flex-col md:flex-row items-start md:items-center transition hover:shadow-xl">
+                        <div class="flex-shrink-0 bg-blue-100 text-blue-800 p-4 rounded-lg text-center mb-4 md:mb-0 md:mr-6">
+                            <span class="block text-xl font-bold">NOV</span>
+                            <span class="block text-3xl font-extrabold">29</span>
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-2xl font-semibold text-slate-800">Pashan Lake Restoration</h3>
+                            <span class="block text-slate-500">9:00 AM - 12:00 PM | Pashan Lake Entry Point</span>
+                        </div>
+                        <button class="signup-btn bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition duration-300 w-full md:w-auto mt-4 md:mt-0 md:ml-6 flex-shrink-0">
+                            Sign Up
+                        </button>
+                    </div>
+                    <!-- Event 3 -->
+                    <div class="bg-slate-50 rounded-lg shadow-lg p-6 flex flex-col md:flex-row items-start md:items-center transition hover:shadow-xl">
+                        <div class="flex-shrink-0 bg-blue-100 text-blue-800 p-4 rounded-lg text-center mb-4 md:mb-0 md:mr-6">
+                            <span class="block text-xl font-bold">DEC</span>
+                            <span class="block text-3xl font-extrabold">06</span>
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-2xl font-semibold text-slate-800">Bund Garden River Sweep</h3>
+                            <span class="block text-slate-500">8:00 AM - 11:00 AM | Bund Garden Bridge</span>
+                        </div>
+                        <button class="signup-btn bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition duration-300 w-full md:w-auto mt-4 md:mt-0 md:ml-6 flex-shrink-0">
+                            Sign Up
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-gradient-to-r from-blue-600 to-cyan-400">
+            <div class="container mx-auto px-6 text-center text-white">
+                <h2 class="text-4xl font-bold mb-6">Join the Movement</h2>
+                <p class="text-xl max-w-2xl mx-auto mb-8">
+                    Every hand counts. Whether you can join a cleanup, spread the word, or reduce waste at home, your actions make a difference.
+                </p>
+                <a href="#events" class="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-slate-100 transition duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl">
+                    See All Events
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-slate-900 text-slate-400 pt-20 pb-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <!-- Brand -->
+                <div>
+                    <a href="#" class="text-3xl font-bold text-white mb-4 block">
+                        <span class="text-cyan-400">River</span>Revive
+                    </a>
+                    <p class="max-w-xs">
+                        Join the movement to restore our local waterways.
+                    </p>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#mission" class="hover:text-white transition-colors">Our Mission</a></li>
+                        <li><a href="#learn" class="hover:text-white transition-colors">Learn More</a></li>
+                        <li><a href="#events" class="hover:text-white transition-colors">Events</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Contact Us</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+                            hello@riverrevive.org
+                        </li>
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+                            Pune, Maharashtra, India
+                        </li>
+                    </ul>
+                </div>
+                <!-- Social -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Follow Us</h4>
+                    <p class="mb-4">Get the latest updates and see our progress.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-400 hover:text-white transition duration-300" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.227-1.669 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.227 1.669-4.771 4.919 4.919 1.266-.057 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.305.197-6.12 2.018-6.317 6.317-.058 1.279-.072 1.688-.072 4.947s.014 3.668.072 4.947c.197 4.305 2.018 6.12 6.317 6.317 1.279.058 1.688.072 4.947.072s3.668-.014 4.947-.072c4.305-.197 6.12-2.018 6.317-6.317.058-1.279.072-1.688.072-4.947s-.014-3.668-.072-4.947c-.197-4.305-2.018-6.12-6.317-6.317-1.279-.058-1.688-.072-4.947-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"></path></svg>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition duration-300" aria-label="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-700 pt-8 text-center text-sm">
+                <p>&copy; 2025 Project River Revive. All rights reserved. Let's make a change together.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sign Up Modal -->
+    <div id="signup-modal" class="modal-hidden fixed inset-0 z-50 flex items-center justify-center p-4" style="background-color: rgba(0,0,0,0.6);">
+        <div class="bg-white w-full max-w-lg rounded-lg shadow-xl p-8 relative">
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-slate-500 hover:text-slate-800 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h3 class="text-2xl font-bold mb-6 text-center">Join the Cleanup!</h3>
+            <form>
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
+                    <input type="text" id="name" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Jane Doe" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+                    <input type="email" id="email" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="jane.doe@example.com" required>
+                </div>
+                <div class="mb-6">
+                    <label for="event-select" class="block text-sm font-medium text-slate-700 mb-1">Which event?</label>
+                    <select id="event-select" class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option>Nov 15 - Mula-Mutha Sangam Cleanup</option>
+                        <option>Nov 29 - Pashan Lake Restoration</option>
+                        <option>Dec 06 - Bund Garden River Sweep</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-all duration-300 transform hover:-translate-y-0.5 shadow-md hover:shadow-lg">
+                    Count Me In!
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript for Modals and Mobile Menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('signup-modal');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            const signupBtns = document.querySelectorAll('.signup-btn');
+
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // --- Mobile Menu Toggle ---
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when a link is clicked
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+
+            // --- Modal Logic ---
+            const showModal = () => {
+                modal.classList.add('modal-visible');
+                modal.classList.remove('modal-hidden');
+            };
+
+            const hideModal = () => {
+                modal.classList.add('modal-hidden');
+                modal.classList.remove('modal-visible');
+            };
+
+            signupBtns.forEach(btn => {
+                btn.addEventListener('click', showModal);
+            });
+
+            closeModalBtn.addEventListener('click', hideModal);
+
+            // Close modal by clicking outside
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    hideModal();
+                }
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('modal-visible')) {
+                    hideModal();
+                }
+            });
+            
+            // Handle form submission (prevents reload, shows a message)
+            const form = modal.querySelector('form');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                form.innerHTML = '<p class="text-center text-lg font-medium text-green-600">Thank you for signing up! We will be in touch soon.</p>';
+                setTimeout(hideModal, 3000); // Hide modal after 3 seconds
+            });
+        });
+    </script>
+</body>
+</html>
+
